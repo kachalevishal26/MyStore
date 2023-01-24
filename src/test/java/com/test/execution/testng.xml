@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="MyStore">
+	
+	
+	
+	<test name="RegisterTest" enabled="true">
+		<classes>
+			<class name="com.test.testcases.SignUpPageTest" />
+		</classes>
+	</test>
+	
+	<test name="LoginTest" enabled="true">
+		<classes>
+			<class name="com.test.testcases.LoginPageTest" />
+		</classes>
+	</test>
+	
+	<test name="ProductTest" enabled="false">
+		<classes>
+			<class name="com.test.testcases.HomePageTest" >
+				<methods>
+					<include name="loginTest"/>
+					<include name="addProduct"/>
+					<include name="addDress"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+</suite>
