@@ -33,8 +33,8 @@ public class CheckoutPageTest extends TestBase {
 	}
 
 	@Test
-	public void addProduct() throws InterruptedException {
-		loginPage.loginTest();
+	public void addProduct(String uName, String uPwd) throws InterruptedException {
+		loginPage.loginTest(uName, uPwd);
 		homePage.productAdd();
 		checkoutPage.checkout();
 	}

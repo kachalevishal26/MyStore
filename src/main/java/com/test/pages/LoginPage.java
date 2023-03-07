@@ -31,11 +31,11 @@ public class LoginPage extends TestBase
 		PageFactory.initElements(driver, this);
 	}
 	
-	public void loginTest()
+	public void loginTest(String uName, String uPwd)
 	{
 		loginBtn.click();
-		logEmail.sendKeys("sunny+25@sunnny.com");
-		logPassword.sendKeys("123456");
+		logEmail.sendKeys(uName);
+		logPassword.sendKeys(uPwd);
 	
 		submitBtn.click();
 	}

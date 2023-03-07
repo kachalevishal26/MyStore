@@ -47,7 +47,7 @@
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
 			<version>7.5</version>
-			<scope>test</scope>
+			<scope>compile</scope>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
@@ -92,7 +92,7 @@
 		</dependency>
 
 	</dependencies>
-
+	
 	<build>
 		<pluginManagement>
 			<plugins>
@@ -108,54 +108,25 @@
 		</pluginManagement>
 	</build>
 
-	<profiles>
-		<profile>
-			<id>selenium-tests</id>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-surefire-plugin</artifactId>
-						<version>2.12</version>
-						<configuration>
-							<skip>true</skip>
-							<properties>
-								<property>
-									<name>usedefaultlisteners</name>
-									<value>false</value>
-								</property>
-								<property>
-									<name>listener</name>
-
-									<value>org.uncommons.reportng.HTMLReporter,
-
-org.uncommons.reportng.JUnitXMLReporter</value>
-								</property>
-							</properties>
-							<workingDirectory>target/</workingDirectory>
-						</configuration>
-						<executions>
-							<execution>
-								<id>start-testing</id>
-								<phase>integration-test</phase>
-								<goals>
-									<goal>test</goal>
-								</goals>
-								<configuration>
-									<skip>false</skip>
-									<suiteXmlFiles>
-
-										<suiteXmlFile>testng.xml</suiteXmlFile>
-									</suiteXmlFiles>
-									<includes>
-										<include>**/*.java</include>
-									</includes>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
+		<profiles>
+        <profile>
+            <id>all</id>
+            <build>
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-surefire-plugin</artifactId>
+                            <version>3.0.0-M5</version>
+                            <configuration>
+                                <suiteXmlFiles>
+                                    <suiteXmlFile>.\src\test\java\com\test\execution\testng.xml</suiteXmlFile>
+                                </suiteXmlFiles>
+                            </configuration>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
+            </build>
+        </profile>
+    </profiles>
 </project>
